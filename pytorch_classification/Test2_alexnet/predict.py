@@ -18,7 +18,12 @@ def main():
          transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
     # load image
-    img_path = "../tulip.jpg"
+    #img_path = "../tulip.jpg"
+    #img_path = "../../data_set/flower_data/val/daisy/3861452393_14d2f95157_m.jpg"
+    #img_path = "../../data_set/flower_data/val/dandelion/3451079245_2139200d66_n.jpg"
+    #img_path = "../../data_set/flower_data/val/roses/12238827553_cf427bfd51_n.jpg"
+    img_path = "../../data_set/flower_data/val/sunflowers/5004121118_e9393e60d0_n.jpg"
+    #img_path = "../../data_set/flower_data/val/tulips/14487712670_aebe715525_m.jpg"
     assert os.path.exists(img_path), "file: '{}' dose not exist.".format(img_path)
     img = Image.open(img_path)
 
