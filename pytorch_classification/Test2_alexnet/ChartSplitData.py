@@ -15,7 +15,8 @@ def main():
     random.seed(0)
 
     # 将数据集中10%的数据划分到验证集中
-    split_rate = 0.1
+    #split_rate = 0.1
+    split_rate = 0.3
 
     # 指向你解压后的flower_photos文件夹
     cwd = os.getcwd()
@@ -35,6 +36,9 @@ def main():
     # 建立保存验证集的文件夹
     val_root = os.path.join(data_root, "val")
     mk_file(val_root)
+    
+    print("After mk_file(val_root) data_root, train_root, val_root =", data_root, train_root, val_root)
+    
     for cla in flower_class:
         # 建立每个类别对应的文件夹
         mk_file(os.path.join(val_root, cla))
@@ -45,14 +49,18 @@ def main():
         num = len(images)
         # 随机采样验证集的索引
         eval_index = random.sample(images, k=int(num*split_rate))
+        print("eval_index, split_rate, num = ", eval_index, split_rate, num)
         for index, image in enumerate(images):
+            print("index, image, images = ", index, image, images)
             if image in eval_index:
                 # 将分配至验证集中的文件复制到相应目录
+                print("将分配至验证集中的文件复制到相应目录!")
                 image_path = os.path.join(cla_path, image)
                 new_path = os.path.join(val_root, cla)
                 copy(image_path, new_path)
             else:
                 # 将分配至训练集中的文件复制到相应目录
+                print("将分配至训练集中的文件复制到相应目录!")
                 image_path = os.path.join(cla_path, image)
                 new_path = os.path.join(train_root, cla)
                 copy(image_path, new_path)
