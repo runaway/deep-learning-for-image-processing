@@ -83,7 +83,7 @@ def main():
     optimizer = optim.Adam(net.parameters(), lr=0.0002)
 
     #epochs = 10
-    epochs = 20
+    epochs = 100
     save_path = './ChartAlexNet.pth'
     best_acc = 0.0
     train_steps = len(train_loader)

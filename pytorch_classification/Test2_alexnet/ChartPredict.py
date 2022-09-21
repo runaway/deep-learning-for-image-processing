@@ -18,9 +18,9 @@ def main():
          transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))])
 
     # load image
-    img_path = "./ChartData/val/BevelEdgePatch/b3.jpg"
-    #img_path = "./ChartData/val/ColorCheckerPatch/c3.jpg"
-    #img_path = "./ChartData/val/WedgeLine/w3.jpg"
+    img_path = "./ChartData/train/BevelEdgePatch/b3.jpg"
+    #img_path = "./ChartData/train/ColorCheckerPatch/c3.jpg"
+    #img_path = "./ChartData/train/WedgeLine/w3.jpg"
     assert os.path.exists(img_path), "file: '{}' dose not exist.".format(img_path)
     img = Image.open(img_path)
 
@@ -42,7 +42,7 @@ def main():
     model = AlexNet(num_classes=3).to(device)
 
     # load model weights
-    weights_path = "./AlexNet.pth"
+    weights_path = "./ChartAlexNet.pth"
     assert os.path.exists(weights_path), "file: '{}' dose not exist.".format(weights_path)
     model.load_state_dict(torch.load(weights_path))
 
